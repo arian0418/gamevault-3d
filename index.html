@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="GameVault 3D — an interactive 3D game collection experience"><title>GameVault 3D</title><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="styles.css"></head><body>
+<div id="loading"><div class="loadLogo">GV</div><div class="loadBar"><i></i></div><span>INITIALIZING VAULT</span></div>
+<div id="intro"><div class="scan"></div><div class="introCopy"><p class="eyebrow">PERSONAL GAME ARCHIVE // 01</p><h1>GAME<span>VAULT</span></h1><p class="tag">Your games. Your history. Your world.</p><button id="enterBtn">ENTER VAULT <b>→</b></button><small>DRAG TO LOOK • SCROLL TO ZOOM • CLICK A GAME</small></div></div>
+<div id="app" class="hidden">
+<header><div class="brand"><div class="mark">GV</div><div><b>GAMEVAULT</b><small>3D ARCHIVE</small></div></div><div class="nav"><button data-view="room" class="active">VAULT</button><button data-view="library">LIBRARY</button><button data-view="stats">STATS</button></div><div class="status"><i></i><span id="gameCount">0 GAMES</span></div></header>
+<div id="canvasWrap"></div>
+<div class="hud left"><span>VAULT // <b id="zone">MAIN ROOM</b></span></div><div class="hud right"><span>DRAG TO ORBIT</span><span>SCROLL TO ZOOM</span></div>
+<div id="hint">CLICK A GAME TO INSPECT</div>
+<aside id="detail" class="detail"><button id="closeDetail">×</button><p class="eyebrow" id="detailStatus">PLAYING</p><h2 id="detailTitle">Game</h2><p id="detailGenre">Genre</p><div class="detailStats"><div><span>PLAYTIME</span><b id="detailHours">0h</b></div><div><span>RATING</span><b id="detailRating">—</b></div></div><p id="detailNote"></p><button id="cycleStatus">CHANGE STATUS</button></aside>
+<section id="library" class="overlayPanel"><div class="panelTop"><div><p class="eyebrow">COLLECTION // INDEX</p><h2>YOUR LIBRARY</h2></div><button class="panelClose">×</button></div><div class="filters"><input id="search" placeholder="Search your vault..."><select id="filter"><option value="All">All statuses</option><option>Playing</option><option>Completed</option><option>Backlog</option></select></div><div id="gameGrid" class="gameGrid"></div></section>
+<section id="stats" class="overlayPanel"><div class="panelTop"><div><p class="eyebrow">ARCHIVE // ANALYTICS</p><h2>VAULT STATS</h2></div><button class="panelClose">×</button></div><div class="bigStats"><article><span>TOTAL PLAYTIME</span><strong id="totalHours">0h</strong></article><article><span>COMPLETED</span><strong id="completed">0</strong></article><article><span>AVG RATING</span><strong id="avgRating">0</strong></article></div><h3>PLAYTIME BY GAME</h3><div id="bars"></div></section>
+<button id="soundToggle" title="Toggle ambient sound">◌</button>
+<div id="toast"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script><script src="app.js"></script></body></html>
