@@ -1,62 +1,36 @@
-# GameVault 3D
+# GameVault
 
-An interactive 3D gaming library where users can explore, organize, and showcase a game collection inside a virtual gaming vault.
+GameVault is a personal gaming tracker that turns a player's game history into a useful dashboard and an optional interactive 3D collection.
 
-## Highlights
+## Features
 
-- Real-time 3D room rendered with Three.js/WebGL
-- Cinematic "Enter Vault" landing experience
-- Drag-to-orbit camera and scroll-to-zoom navigation
-- Clickable 3D game cases with game details
-- Playing / Completed / Backlog status tracking
-- Searchable and filterable 2D collection view
-- Playtime, completion, rating, and per-game analytics
-- Persistent status changes using browser Local Storage
-- Procedural room geometry, shelves, desk, trophies, lighting, fog, and particles
-- Optional generated ambient tone
-- Responsive interface
-
-## Tech Stack
-
-- HTML
-- CSS
-- JavaScript
-- Three.js / WebGL
-- Browser Local Storage
-
-No framework, Node.js, database, or build tools are required.
+- Add, edit, and remove games
+- Track Playing, Completed, Backlog, and Dropped status
+- Record platform, genre, playtime, personal rating, achievements, start/completion dates, notes, and a custom accent color
+- Dashboard with total playtime, completion rate, average rating, achievements, current games, and recent activity
+- Search, filter, and sort the full library
+- Analytics for most-played games, favorite genres, platforms, and library status
+- Interactive Three.js 3D showcase generated from the user's own tracked collection
+- Persistent browser storage with Local Storage
+- Responsive desktop/mobile layout
+- No Node.js, database, account, or build tools required
 
 ## Run
 
-Because the project loads Three.js from a CDN, an internet connection is required.
+Download the repository and open `index.html` in a modern browser. An internet connection is needed for the optional 3D Showcase because Three.js is loaded from a CDN. All core tracking features work in the browser and game data is stored locally on the device.
 
-1. Download the repository.
-2. Extract it.
-3. Double-click `index.html`.
-4. Click **ENTER VAULT**.
-
-If your browser blocks CDN scripts on local files, run a tiny local server from the project folder with:
+If your browser restricts CDN scripts from local files, from the project folder run:
 
 ```
 python -m http.server 8000
 ```
 
-Then visit `localhost:8000`.
+Then open `localhost:8000`.
 
-## Controls
+## Architecture
 
-- **Drag:** orbit the vault
-- **Mouse wheel:** zoom
-- **Click a game case:** inspect it
-- **Vault / Library / Stats:** switch views
-- **Change Status:** cycle a selected game through Backlog, Playing, and Completed
+The application uses a single shared JavaScript game model. Dashboard metrics, library cards, analytics, editing, and the 3D collection all render from that same data. Changes are serialized to Local Storage. The 3D view maps each tracked game to a Three.js mesh and uses raycasting to connect clicked 3D objects back to their underlying game record.
 
-## How it works
+## Tech
 
-The room is generated programmatically with Three.js primitives. Each displayed game case is a 3D group linked to a JavaScript game object through an ID. A raycaster detects which 3D object the user clicks and opens the matching game data. The render loop smoothly interpolates room rotation and camera zoom while updating environmental animation.
-
-The library and analytics views use the same game data as the 3D room. Status changes are persisted in Local Storage, so the collection remains updated between browser sessions.
-
-## Project Goal
-
-GameVault 3D explores how a traditional game library can become an interactive spatial interface while demonstrating 3D graphics, event handling, data modeling, state persistence, responsive design, and performance-aware rendering.
+HTML, CSS, JavaScript, Three.js/WebGL, Local Storage.
