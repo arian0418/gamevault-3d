@@ -1,4 +1,4 @@
-# GameVault — Python Gaming Tracker
+# GameVault: Python Gaming Tracker
 
 GameVault is a personal gaming tracker built primarily in **Python**. Track your library, playtime, completion status, ratings, achievements, favorites, notes, and gaming statistics from a Streamlit dashboard.
 
@@ -13,7 +13,7 @@ Python • Streamlit • pandas • JSON persistence
 
 ## Features
 - Dashboard with total games, playtime, completion count, and average rating
-- Currently-playing view
+- View games currently being played
 - Search and status filtering
 - Add, edit, favorite, and delete games
 - Quick playtime logging
